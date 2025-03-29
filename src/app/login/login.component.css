@@ -1,0 +1,29 @@
+.container {
+  background: linear-gradient(150deg, #6c3483, #585858);
+  height: 100vh;
+  width: 100%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formulario {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #775a5a8e;
+}
+.formulario .bloque {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
