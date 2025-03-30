@@ -10,7 +10,7 @@
     justify-content: center;
 }
 h1{
-    color: var(--white-color);
+    color: var(--grey-color);
     font-size: 60px;
     font-family: sans-serif;
 }
@@ -25,6 +25,6 @@ a{
     font-family: sans-serif;
     text-decoration: none;
     padding: 80px 50px;
-    background-color: var(--white-color);
+    background-color: var(--grey-color);
     border-radius: 15px;
 }
