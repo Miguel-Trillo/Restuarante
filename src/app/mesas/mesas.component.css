@@ -1,4 +1,6 @@
-.mesitas {
+
+  
+  .mesitas {
     font-family: Arial, sans-serif;
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -9,45 +11,45 @@
     min-height: 100vh;
     text-align: center;
     position: relative;
-}
-
-.header {
+  }
+  
+  .header {
     width: 100%;
     display: flex;
     align-items: center;
     padding: 15px 220px;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     margin-bottom: 55px;
-}
-
-.back-button {
+  }
+  
+  .back-button {
     font-size: 24px;
     cursor: pointer;
     color: var(--white-color);
-    margin-right: 10px; 
-}
-
-.title {
+    margin-right: 10px;
+  }
+  
+  .title {
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 0.5px;
-    text-align: left; 
-}
-
-.progress-container {
+    text-align: left;
+  }
+  
+  .progress-container {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 5px 0 30px 0;
-}
-
-.progress-bar {
+  }
+  
+  .progress-bar {
     display: flex;
     align-items: center;
     width: 250px;
-}
-
-.icon {
+  }
+  
+  .icon {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -58,16 +60,16 @@
     font-size: 35px;
     font-weight: bold;
     margin: 0 10px;
-}
-
-.progress-line {
+  }
+  
+  .progress-line {
     height: 4px;
     flex-grow: 1;
     position: relative;
     background-color: var(--white-color);
-}
-
-.progress-line:after {
+  }
+  
+  .progress-line:after {
     content: "";
     position: absolute;
     left: 0;
@@ -75,52 +77,69 @@
     height: 100%;
     width: 50%;
     background-color: var(--white-color);
-}
-
-.progress-circle {
+  }
+  
+  .progress-circle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     margin: 0 4px;
-}
-
-.circle-active {
+  }
+  
+  .circle-active {
     background-color: var(--success-color);
-}
-
-.circle-inactive {
+  }
+  
+  .circle-inactive {
     background-color: var(--white-color);
-}
-
-.tables-grid {
+  }
+  
+  .tables-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 95px;
     margin: 0 auto;
     max-width: 1330px;
-}
-
-.table-container {
+  }
+  
+  .table-container {
     position: relative;
     width: 190px;
     height: 190px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease-in-out; 
-}
-
-.table-container:hover {
-    transform: scale(1.1); 
-}
-
-.table-img {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .table-container:hover {
+    transform: scale(1.1);
+  }
+  
+  .table-container.selected {
+    transform: scale(1.1);
+  }
+  
+  .table-container.selected::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid var(--success-color);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+    z-index: 1;
+  }
+  
+  .table-img {
     width: 260px;
     height: auto;
     cursor: pointer;
-}
-
-.table-number {
+  }
+  
+  .table-number {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -134,19 +153,24 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: transform 0.2s ease-in-out; 
-}
-
-.table-container:hover .table-number {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .table-container:hover .table-number {
     transform: translate(-50%, -50%) scale(1.1);
-}
-
-.button-container {
+  }
+  
+  .table-container.selected .table-number {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: var(--success-color);
+  }
+  
+  .button-container {
     margin-top: 55px;
     margin-bottom: 40px;
-}
-
-.continue-button {
+  }
+  
+  .continue-button {
     background-color: var(--success-color);
     color: var(--white-color);
     border: none;
@@ -155,12 +179,18 @@
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
-}
+  }
+  
 
-.date-display {
+  .continue-button:disabled {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+  }
+  
+  .date-display {
     position: absolute;
     top: 40px;
     right: 20px;
     font-size: 20px;
     color: var(--white-color);
-}
+  }

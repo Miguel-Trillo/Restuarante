@@ -1,67 +1,34 @@
 <div class="mesitas">
     <div class="date-display">📅 Marzo 23 2025, 10:00PM</div>
-
+  
     <div class="progress-container">
-        <div class="progress-bar">
-            <div class="icon">🍽️</div>
-            <div class="progress-circle circle-active"></div>
-            <div class="progress-line"></div>
-            <div class="progress-circle circle-inactive"></div>
-            <div class="icon">🍴</div>
-        </div>
+      <div class="progress-bar">
+        <div class="icon">🍽️</div>
+        <div class="progress-circle circle-active"></div>
+        <div class="progress-line"></div>
+        <div class="progress-circle circle-inactive"></div>
+        <div class="icon">🍴</div>
+      </div>
     </div>
-
+  
     <div class="header">
-        <div class="back-button">&#10094;</div>
-        <div class="title">SELECCIONAR MESA DEL PEDIDO</div>
+      <div class="back-button">&#10094;</div>
+      <div class="title">SELECCIONAR MESA DEL PEDIDO</div>
     </div>
-
-    
-
+  
     <div class="tables-grid">
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 1" class="table-img">
-            <div class="table-number">M1</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 2" class="table-img">
-            <div class="table-number">M2</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 3" class="table-img">
-            <div class="table-number">M3</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 4" class="table-img">
-            <div class="table-number">M4</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 5" class="table-img">
-            <div class="table-number">M5</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 6" class="table-img">
-            <div class="table-number">M6</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 7" class="table-img">
-            <div class="table-number">M7</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 8" class="table-img">
-            <div class="table-number">M8</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 9" class="table-img">
-            <div class="table-number">M9</div>
-        </div>
-        <div class="table-container">
-            <img src="mesas.png" alt="Mesa 10" class="table-img">
-            <div class="table-number">M10</div>
-        </div>
+      <div *ngFor="let mesa of mesas" 
+           class="table-container" 
+           [class.selected]="mesaSeleccionada === mesa.id"
+           (click)="seleccionarMesa(mesa.id)">
+        <img src="mesas.png" [alt]="mesa.nombre" class="table-img">
+        <div class="table-number">{{mesa.nombre}}</div>
+      </div>
     </div>
-
+  
     <div class="button-container">
-        <button class="continue-button">Seleccionar y Continuar</button>
+      <button class="continue-button" 
+              [disabled]="!mesaSeleccionada"
+              (click)="continuar()">Seleccionar y Continuar</button>
     </div>
-</div>
+  </div>
