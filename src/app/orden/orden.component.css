@@ -1,0 +1,166 @@
+.orden {
+  background: var(--primary-color);
+  height: 100vh;
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0 30px 0;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.icon {
+  width: auto;
+  height: auto;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.progress-line {
+  height: 4px;
+  flex-grow: 1;
+  position: relative;
+  background-color: var(--white-color);
+}
+
+.progress-line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--white-color);
+}
+
+.progress-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.circle-active {
+  background-color: var(--success-color);
+}
+
+.circle-inactive {
+  background-color: var(--white-color);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/*CUERPO PRINCIPAL DE LA ORDEN*/
+
+.contenedor-principal {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  color: #fff;
+}
+.menu {
+  background-color: var(--component-color);
+  box-shadow: -6px 6px 10px -10px var(--white-color);
+}
+.menu h4 {
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.menu li {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  background-color: transparent;
+}
+.menu li span {
+  flex: 1;
+}
+.menu li:hover {
+  opacity: 0.7;
+}
+.menu li.activa {
+  opacity: 1;
+  background-color: #f47425;
+}
+
+.productos-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.producto-card {
+  background-color: #2d3846;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.producto-nombre {
+  font-weight: bold;
+}
+
+.producto-precio {
+  color: #f47425;
+}
+
+.producto-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.boton-anadir {
+  background-color: #f47425;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cantidad {
+  margin: 0 10px;
+  min-width: 20px;
+  text-align: center;
+}
