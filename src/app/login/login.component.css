@@ -1,9 +1,10 @@
 .container {
-  background: linear-gradient(
+  /*background: linear-gradient(
     140deg,
     var(--component-color),
     var(--secondary-color)
-  );
+  );*/
+  background-image: url(../../../pexels-reneterp-1581384.jpg);
   height: 100vh;
   width: 100%;
   display: flex;
