@@ -1,62 +1,74 @@
 <div class="orden">
-  <header>
-    <div class="progress-container">
-      <div class="progress-bar">
-        <mat-icon class="icon">table_restaurant</mat-icon>
-        <div class="progress-circle circle-active"></div>
-        <div class="progress-line"></div>
-        <div class="progress-circle circle-inactive"></div>
-        <mat-icon class="icon">local_dining</mat-icon>
-      </div>
-    </div>
-    <div class="title-container">
-      <button mat-icon-button (click)="goBack()">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-      <h2 class="title">TOMAR ORDEN</h2>
-    </div>
-  </header>
-
-  <div class="contenedor-principal">
-    <!-- Menú lateral de categorías -->
-    <aside class="menu-container">
-      <nav class="menu">
-        <h4>ELIJA LA CATEGORÍA</h4>
-        <ul class="menu__list">
-          <li *ngFor="let categoria of categorias"
-              [class.activa]="categoriaActual === categoria"
-              (click)="cambiarCategoria(categoria)">
-
-            <span>{{ categoria }}</span>
-            <mat-icon>chevron_right</mat-icon>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- Área de productos -->
-    <div class="productos-container">
-      <div class="productos-grid">
-        <div class="producto-card" *ngFor="let producto of productosFiltrados">
-          <img [src]="producto.imagen" alt="{{ producto.nombre }}">
-          <div class="producto-info">
-            <span class="producto-nombre">{{ producto.nombre }}</span>
-            <span class="producto-precio">S/. {{ producto.precio }}</span>
+  <div class="pedido">
+    <!-- ESTA ES LA CABECERA -->
+    <header>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="date-display">📅 Marzo 23 2025, 10:00PM</div>
+  
+          <div class="progress-container">
+            <div class="progress-bar">
+              <mat-icon class="icon">table_restaurant</mat-icon>
+              <div class="progress-circle circle-active"></div>
+              <div class="progress-line"></div>
+              <div class="progress-circle circle-inactive"></div>
+              <mat-icon class="icon">local_dining</mat-icon>
+            </div>
           </div>
-          <div class="producto-controls">
-            <button mat-icon-button (click)="decrementar(producto.id)">
-              <mat-icon>remove</mat-icon>
-            </button>
-            <span class="cantidad">{{ getCantidad(producto.id) }}</span>
-            <button mat-icon-button (click)="incrementar(producto.id)">
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
-          <button class="boton-anadir" (click)="anadirAlCarrito(producto)">AÑADIR</button>
         </div>
       </div>
+      <div class="title-container">
+        <button mat-icon-button (click)="goBack()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <h2 class="title">TOMAR ORDEN</h2>
+      </div>
+    </header>
+
+    <div class="contenedor-principal">
+      <!-- Menú lateral de categorías -->
+      <aside class="menu-container">
+        <nav class="menu">
+          <h4>ELIJA LA CATEGORÍA</h4>
+          <ul class="menu__list">
+            <li *ngFor="let categoria of categorias" [class.activa]="categoriaActual === categoria"
+              (click)="cambiarCategoria(categoria)">
+
+              <span>{{ categoria }}</span>
+              <mat-icon>chevron_right</mat-icon>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Área de productos -->
+      <div class="productos-container">
+        <div class="productos-grid">
+          <div class="producto-card" *ngFor="let producto of productosFiltrados">
+            <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+            <div class="producto-info">
+              <span class="producto-nombre">{{ producto.nombre }}</span>
+              <span class="producto-precio">S/. {{ producto.precio }}</span>
+            </div>
+            <div class="producto-controls">
+              <button mat-icon-button (click)="decrementar(producto.id)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <span class="cantidad">{{ getCantidad(producto.id) }}</span>
+              <button mat-icon-button (click)="incrementar(producto.id)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <button class="boton-anadir" (click)="anadirAlCarrito(producto)">AÑADIR</button>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
+  <div class="boleta">
+
+  </div>
 </div>
-
-
