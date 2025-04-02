@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+
 
 interface Producto {
   id: number;
@@ -20,6 +22,8 @@ interface Producto {
   styleUrls: ['./orden.component.css']
 })
 export class OrdenComponent {
+  mesaId: number | null = null;
+  fechaRecibida: string = '';
   categoriaActual: string = 'Platos Principales';
 
   productos: Producto[] = [
@@ -40,6 +44,15 @@ export class OrdenComponent {
   }
 
   cantidades: {[id: number]: number} = {};
+
+  constructor(private route: ActivatedRoute, private location: Location) {
+    this.route.paramMap.subscribe(params => {
+      this.mesaId = Number(params.get('mesaId'));
+    });
+    this.route.queryParamMap.subscribe(params => {
+      this.fechaRecibida = params.get('fecha') || 'No se proporcionó fecha';
+    });
+  }
 
   incrementar(id: number): void {
     if (!this.cantidades[id]) {
@@ -66,9 +79,6 @@ export class OrdenComponent {
     // Implementa la lógica para añadir al carrito
   }
 
-
-
-  constructor(private location: Location) {}
 
   goBack(): void {
     this.location.back();
