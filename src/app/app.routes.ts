@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'mesas', component: MesasComponent },
   { path: 'pedidos', component: AdminPedidosComponent },
-  { path: 'orden', component: OrdenComponent },
+  { path: 'orden/:mesaId', component: OrdenComponent },
   { path: '**', redirectTo: 'login' } // Ruta de fallback si la URL no coincide
 ];
 

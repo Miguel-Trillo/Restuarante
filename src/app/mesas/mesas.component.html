@@ -1,34 +1,49 @@
 <div class="mesitas">
-    <div class="date-display">📅 Marzo 23 2025, 10:00PM</div>
+  <div class="date-display" (click)="cambiarFecha()">{{ fechaActual }}</div>
   
-    <div class="progress-container">
-      <div class="progress-bar">
-        <div class="icon">🍽️</div>
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-step">
+        <div class="icon">
+          <img src="mesaico.ico" alt="Mesas" class="icon-image">
+        </div>
         <div class="progress-circle circle-active"></div>
-        <div class="progress-line"></div>
+      </div>
+
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="icon">
+          <img src="platosico.ico" alt="Platos" class="icon-images">
+        </div>
         <div class="progress-circle circle-inactive"></div>
-        <div class="icon">🍴</div>
       </div>
-    </div>
-  
-    <div class="header">
-      <div class="back-button">&#10094;</div>
-      <div class="title">SELECCIONAR MESA DEL PEDIDO</div>
-    </div>
-  
-    <div class="tables-grid">
-      <div *ngFor="let mesa of mesas" 
-           class="table-container" 
-           [class.selected]="mesaSeleccionada === mesa.id"
-           (click)="seleccionarMesa(mesa.id)">
-        <img src="mesas.png" [alt]="mesa.nombre" class="table-img">
-        <div class="table-number">{{mesa.nombre}}</div>
-      </div>
-    </div>
-  
-    <div class="button-container">
-      <button class="continue-button" 
-              [disabled]="!mesaSeleccionada"
-              (click)="continuar()">Seleccionar y Continuar</button>
     </div>
   </div>
+  
+  <div class="header">
+    <div class="back-button" (click)="volver()">&#10094;</div>
+    <div class="title">SELECCIONAR MESA DEL PEDIDO</div>
+  </div>
+  
+  <div class="tables-grid">
+    <div *ngFor="let mesa of mesas"
+         class="table-container" 
+         [class.selected]="mesaSeleccionada === mesa.id"
+         (click)="seleccionarMesa(mesa.id)">
+         <picture>
+          <source media="(max-width: 768px)" srcset="mesaseg.png">
+          <img src="mesas.png" [alt]="mesa.nombre" class="table-img">
+        </picture>      <div class="table-number">{{ mesa.nombre }}</div>
+    </div>
+  </div>
+
+
+  
+  <div class="button-container">
+    <button class="continue-button"
+            [disabled]="!mesaSeleccionada || !fechaFijada"
+            (click)="continuar()">
+      Seleccionar y Continuar
+    </button>
+  </div>
+</div>
