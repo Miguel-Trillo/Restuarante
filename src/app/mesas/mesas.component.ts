@@ -38,13 +38,13 @@ export class MesasComponent {
   }
 
   volver(): void {
-    this.router.navigate(['/prueba1']);
+    this.router.navigate(['/main']);
   }
 
   continuar(): void {
     if (this.mesaSeleccionada && this.fechaFijada) {
       console.log('Continuando con la mesa:', this.mesaSeleccionada);
-      this.router.navigate(['/prueba1', this.mesaSeleccionada], { queryParams: { fecha: this.fechaActual } });
+      this.router.navigate(['/orden', this.mesaSeleccionada], { queryParams: { fecha: this.fechaActual } });
     } else {
       console.log('Debe seleccionar una mesa y fijar la fecha.');
     }
