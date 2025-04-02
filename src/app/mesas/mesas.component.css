@@ -1,196 +1,304 @@
+.mesitas {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+}
 
-  
-  .mesitas {
-    font-family: Arial, sans-serif;
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    min-height: 100vh;
-    text-align: center;
-    position: relative;
-  }
-  
-  .header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 15px 220px;
-    justify-content: flex-start;
-    margin-bottom: 55px;
-  }
-  
-  .back-button {
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--white-color);
-    margin-right: 10px;
-  }
-  
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-align: left;
-  }
-  
-  .progress-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 5px 0 30px 0;
-  }
-  
-  .progress-bar {
-    display: flex;
-    align-items: center;
-    width: 250px;
-  }
-  
-  .icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    font-weight: bold;
-    margin: 0 10px;
-  }
-  
-  .progress-line {
-    height: 4px;
-    flex-grow: 1;
-    position: relative;
-    background-color: var(--white-color);
-  }
-  
-  .progress-line:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    background-color: var(--white-color);
-  }
-  
-  .progress-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: 0 4px;
-  }
-  
-  .circle-active {
-    background-color: var(--success-color);
-  }
-  
-  .circle-inactive {
-    background-color: var(--white-color);
-  }
-  
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 105px;
+  justify-content: flex-start;
+  margin-bottom: 55px;
+  position: relative;
+  top: 20px;
+}
+
+.back-button {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--white-color);
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.progress-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0 30px 0;
+}
+.progress-bar {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  position: relative;
+  top: 15px;
+}
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon {
+  margin-bottom: 5px;
+}
+.icon-image {
+  max-width: 30px;
+  max-height: 30px;
+  display: block;
+  margin: 0 auto;
+}
+.icon-images {
+  max-width: 30px;
+  max-height: 30px;
+  display: block;
+  margin: 0 auto;
+}
+.progress-line {
+  height: 4px;
+  flex-grow: 1;
+  position: relative;
+  background-color: var(--white-color, #fff);
+  margin-top: 40px;
+}
+.progress-line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--white-color, #fff);
+}
+.progress-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-top: 4px; 
+}
+.circle-active {
+  background-color: var(--success-color, green);
+}
+.circle-inactive {
+  background-color: var(--white-color, #fff);
+}
+
+
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 33px;
+  margin: 0 auto;
+  max-width: 1130px;
+}
+
+.table-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.table-container:hover {
+  transform: scale(1.1);
+}
+
+.table-container.selected {
+  transform: scale(1.1);
+}
+
+.table-container.selected::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 3px solid var(--success-color);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+  z-index: 1;
+}
+
+.table-img {
+  width: 250px;
+  height: auto;
+  cursor: pointer;
+}
+
+.table-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--white-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.table-container:hover .table-number {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.table-container.selected .table-number {
+  transform: translate(-50%, -50%) scale(1.1);
+  color: var(--success-color);
+}
+
+.button-container {
+  margin-top: 55px;
+  margin-bottom: 40px;
+}
+
+.continue-button {
+  background-color: var(--success-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 4px;
+  padding: 16px 65px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.continue-button:disabled {
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+.date-display {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+
+@media (max-width: 768px) {
+
   .tables-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 95px;
-    margin: 0 auto;
-    max-width: 1330px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1px; 
+    max-width: 100%;
+    margin-top: 20px;
   }
   
   .table-container {
-    position: relative;
-    width: 190px;
-    height: 190px;
+    width: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease-in-out;
-  }
-  
-  .table-container:hover {
-    transform: scale(1.1);
-  }
-  
-  .table-container.selected {
-    transform: scale(1.1);
-  }
-  
-  .table-container.selected::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 3px solid var(--success-color);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
-    z-index: 1;
   }
   
   .table-img {
-    width: 260px;
-    height: auto;
-    cursor: pointer;
+    max-width: 120px;
   }
   
   .table-number {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--white-color);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: transform 0.2s ease-in-out;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
   }
   
-  .table-container:hover .table-number {
-    transform: translate(-50%, -50%) scale(1.1);
+  .tables-grid > .table-container:last-child {
+    grid-column: 2;
   }
   
-  .table-container.selected .table-number {
-    transform: translate(-50%, -50%) scale(1.1);
+  .header {
+    padding-left: 0; 
+  }
+  
+  .back-button {
+    margin-left: 35px;
+    font-size: 13px;
+  }
+
+  
+
+  .date-display {
+    top: 157px;
+    font-size: 13px; 
+    left: 29px;  
+  }
+  
+  .title {
+    font-size: 13px;
     color: var(--success-color);
+    margin-left: 60px;
+    text-align: center;
+  }
+
+  .table-container.selected::after {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+  }
+
+  .continue-button {
+    padding: 13px 37px;
+    font-size: 15px;
   }
   
   .button-container {
-    margin-top: 55px;
-    margin-bottom: 40px;
+    margin-top: 24px;
   }
-  
-  .continue-button {
-    background-color: var(--success-color);
-    color: var(--white-color);
-    border: none;
-    border-radius: 4px;
-    padding: 16px 65px;
-    font-size: 20px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
 
-  .continue-button:disabled {
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: not-allowed;
-  }
+
+
   
-  .date-display {
-    position: absolute;
-    top: 40px;
-    right: 20px;
-    font-size: 20px;
-    color: var(--white-color);
+  .progress-container {
+    padding: 5px 0 11px 0;
   }
+  .progress-bar {
+    width: 110px; 
+    top: 10px; 
+  }
+  .icon-image {
+    max-width: 25px;
+    max-height: 25px;
+  }
+  .icon-images {
+    max-width: 25px;
+    max-height: 25px;
+  }
+  .progress-line {
+    margin-top: 30px;
+  }
+  .progress-circle {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+  }
+ 
+
+}

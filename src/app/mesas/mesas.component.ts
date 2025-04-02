@@ -26,25 +26,41 @@ export class MesasComponent {
     { id: 7, nombre: 'M7', disponible: true },
     { id: 8, nombre: 'M8', disponible: true },
     { id: 9, nombre: 'M9', disponible: true },
-    { id: 10, nombre: 'M10', disponible: true },
+    { id: 10, nombre: 'M10', disponible: true }
   ];
-
+  fechaActual: string = 'Haga click para fijar la fecha';
+  fechaFijada: boolean = false;
   mesaSeleccionada: number | null = null;
-  fechaActual: string = '📅 Marzo 23 2025, 10:00PM';
-
   constructor(private router: Router) {}
-
   seleccionarMesa(id: number): void {
     this.mesaSeleccionada = id;
     console.log('Mesa seleccionada:', id);
   }
 
-  continuar(): void {
-    if (this.mesaSeleccionada) {
-      console.log('Continuando con la mesa:', this.mesaSeleccionada);
-      
-      this.router.navigate(['/menu', this.mesaSeleccionada]);
+  volver(): void {
+    this.router.navigate(['/prueba1']);
+  }
 
+  continuar(): void {
+    if (this.mesaSeleccionada && this.fechaFijada) {
+      console.log('Continuando con la mesa:', this.mesaSeleccionada);
+      this.router.navigate(['/prueba1', this.mesaSeleccionada], { queryParams: { fecha: this.fechaActual } });
+    } else {
+      console.log('Debe seleccionar una mesa y fijar la fecha.');
     }
+  }
+
+  cambiarFecha(): void {
+    const fecha = new Date();
+    const opciones: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    };
+    this.fechaActual = fecha.toLocaleString('es-ES', opciones);
+    this.fechaFijada = true;
+    console.log('Fecha actualizada:', this.fechaActual);
   }
 }
