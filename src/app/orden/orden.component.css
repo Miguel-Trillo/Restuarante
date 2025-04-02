@@ -235,8 +235,8 @@
 }
 .date-display {
   position: absolute;
-  top: 40px;
-  right: 20px;
-  font-size: 20px;
-  color: var(--white-color);
+    top: 15px;
+    right: 15px;
+    color: var(--white-color);
+    font-size: 12px;
 }

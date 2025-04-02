@@ -57,7 +57,8 @@ export class MesasComponent {
       month: 'long',
       year: 'numeric',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      hour12: true
     };
     this.fechaActual = fecha.toLocaleString('es-ES', opciones);
     this.fechaFijada = true;
