@@ -1,20 +1,23 @@
 <div class="container">
   <div class="formulario">
     <h2>Inicio de Sesión</h2>
-    <form action="">
+    <form (ngSubmit)="login()">
       <div class="bloque borde">
         <i class="fa-regular fa-user fa-xs"></i>
-        <input type="text" placeholder="Ingresar Usuario" />
+        <input type="text" placeholder="Ingresar Usuario" [(ngModel)]="username" name="username" required />
       </div>
       <div class="bloque borde">
         <i class="fa-solid fa-unlock-keyhole fa-xs"></i>
-        <input type="text" placeholder="Ingresar Contraseña" />
+        <input type="password" placeholder="Ingresar Contraseña" [(ngModel)]="password" name="password" required />
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
       </div>
       <div class="opciones boton">
         <a href="#">¿Olvidaste tu Contraseña?</a>
       </div>
       <div class="boton">
-        <button>Ingresar</button>
+        <button type="submit">Ingresar</button>
       </div>
     </form>
   </div>
